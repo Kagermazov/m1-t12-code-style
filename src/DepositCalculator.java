@@ -5,13 +5,13 @@ public class DepositCalculator {
         double result = amount * Math.pow((1 + 0.06 / 12), 12 * period);
         return round(result);
     }
-
-    double calculateSimplePercent(double amount, int deposit_period) {
+    // Названия переменных должны начинаться с маленькой буквы, camel-case-ом
+    double calculateSimplePercent(double amount, int deposit_period) { 
         double result = amount + (amount * 0.06 * deposit_period);
         return round(result);
     }
 
-    double round(double value) {
+    double round(double value) { // Может стоит переименовать метод для лучшего понимания его предназначения
         double scale = Math.pow(10, 2);
         return Math.round(value * scale) / scale;
     }
@@ -30,7 +30,7 @@ public class DepositCalculator {
 
         double income = 0;
 
-        switch (action) {
+        switch (action) { 
             case 1 -> income = calculateSimplePercent(amount, period);
             case 2 -> income= calculateComplexPercent(amount, period);
             default -> System.out.println("Такой команды нет.");
